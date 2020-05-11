@@ -1,19 +1,6 @@
 from ddtrace import tracer
 from ddtrace.propagation.b3 import B3HTTPPropagator
 
-tracer.configure(
-    http_propagator=B3HTTPPropagator,
-    hostname="ingest.lightstep.com",
-    port=443,
-    https=True
-)
-tracer.set_tags(
-    {
-        "lightstep.service_name": "lightstep-py",
-        "lightstep.access_token": "<access-token>",
-    }
-)
-
 from json import loads, dumps
 from uuid import uuid4
 
